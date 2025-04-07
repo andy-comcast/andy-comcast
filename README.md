@@ -18,7 +18,7 @@ This repository uses a **branch-based organization system** that provides severa
 
 | Project | Description | Technologies | Status |
 |---------|-------------|--------------|--------|
-| [Codecademy - Challenge Project: Company Home Page with Flexbox](https://github.com/andy-comcast/andy-comcast/tree/project-codecademy-company-home-page) | Simple Flexbox Use | HTML, CSS, | In Progress |
+| [Codecademy - Challenge Project: Company Home Page with Flexbox](https://github.com/andy-comcast/andy-comcast/tree/project-codecademy-company-home-page/README.md) | Simple Flexbox Use | HTML, CSS, | In Progress |
 
 *Note: This table will be updated as projects are added to the repository. Click on project names to view their source code and documentation.*
 
