@@ -8,10 +8,9 @@ In this project, I will be using flexbox to design and build the layout for a co
 
 ## Features
 
-- **{{feature-1-name}}**: {{feature-1-description}}
-- **{{feature-2-name}}**: {{feature-2-description}}
-- **{{feature-3-name}}**: {{feature-3-description}}
-- **{{feature-4-name}}**: {{feature-4-description}}
+- **Standard Elements**: A title, logo, mission statement, images of product, and employee section
+- **Flexbox Styling**: Aim to use flexbox’s advantages, such as easy horizontal and vertical positioning, flexible element flows as the page size changes, and great styling for repeated elements
+- **Custom Styles**: Simple color scheme, Google Fonts API, and custom images
 
 ## Screenshots
 
@@ -27,13 +26,9 @@ In this project, I will be using flexbox to design and build the layout for a co
 
 ## Technologies Used
 
-- **Frontend**: {{frontend-technologies}}
-- **Styling**: {{styling-technologies}}
-- **JavaScript**: {{javascript-technologies}}
-- **Backend** (if applicable): {{backend-technologies}}
-- **Database** (if applicable): {{database-technologies}}
-- **APIs/External Services**: {{apis-used}}
-- **Deployment**: {{deployment-platform}}
+- **Frontend**: HTML5 / CSS
+- **Styling**: CSS
+- **Deployment**: GitHub
 
 ## Project Structure
 
@@ -44,16 +39,11 @@ project-root/
 │   ├── normalize.css       # CSS reset
 │   ├── variables.css       # CSS variables
 │   └── main.css            # Main stylesheet
-├── js/                     # JavaScript files
-│   ├── main.js             # Main JavaScript file
-│   └── utils/              # Utility functions
-│       └── helpers.js      # Helper functions
 ├── assets/                 # Static assets
 │   ├── images/             # Image files
 │   ├── fonts/              # Font files
 │   └── icons/              # Icon files
-└── docs/                   # Documentation
-    └── API.md              # API documentation (if applicable)
+
 ```
 
 ## Installation & Setup
