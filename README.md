@@ -43,7 +43,10 @@ project-root/
 │   ├── images/             # Image files
 │   ├── fonts/              # Font files
 │   └── icons/              # Icon files
-├──
+├── CHANGELOG.md            # CHANGELOG file
+├── CONTRIBUTING.md         # CONTRIBUTING file
+├── LICENSE                 # MIT License file
+├── README.md               # README file
 ```
 
 ## Installation & Setup
@@ -125,8 +128,8 @@ This project has been tested and confirmed to work on the following browsers:
 
 ## License
 
-This project is part of my web development portfolio and is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is part of my web development portfolio and is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
-Created by [{{your-name}}]({{your-portfolio-url}}) - {{creation-date}}
+Created by [Andy Reeves](https://github.com/andy-comcast) - April 7, 2025
