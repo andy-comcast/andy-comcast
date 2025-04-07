@@ -4,9 +4,7 @@
 
 ## Overview
 
-{{project-description}}
-
-This project was created to {{project-purpose}}. It showcases the use of {{key-technologies}} to build {{project-type}}.
+In this project, I will be using flexbox to design and build the layout for a company’s homepage.
 
 ## Features
 
