@@ -43,7 +43,7 @@ project-root/
 │   ├── images/             # Image files
 │   ├── fonts/              # Font files
 │   └── icons/              # Icon files
-
+├──
 ```
 
 ## Installation & Setup
