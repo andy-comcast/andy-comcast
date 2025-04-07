@@ -1,1 +1,261 @@
+/**
+ * Form Styles
+ * 
+ * This file contains styles for form elements and layouts.
+ * It should be imported in the main stylesheet.
+ */
 
+/* Base form styles */
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md);
+    position: relative;
+  }
+  
+  /* Labels */
+  .form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+  }
+  
+  .form-label.required::after {
+    content: '*';
+    color: var(--color-error);
+    margin-left: var(--spacing-xs);
+  }
+  
+  /* Form controls */
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  .form-control:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
+  }
+  
+  .form-control:disabled,
+  .form-control[readonly] {
+    background-color: var(--color-background-alt);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Validation states */
+  .form-control.is-valid {
+    border-color: var(--color-success);
+  }
+  
+  .form-control.is-invalid {
+    border-color: var(--color-error);
+  }
+  
+  /* Error messages */
+  .form-error-message {
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+  }
+  
+  /* Success messages */
+  .form-success-message {
+    color: var(--color-success);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+  }
+  
+  /* Help text */
+  .form-text {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+  }
+  
+  /* Checkboxes and Radio buttons */
+  .form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .form-check-input {
+    position: absolute;
+    margin-top: 0.25rem;
+    margin-left: -1.75rem;
+  }
+  
+  .form-check-label {
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  
+  /* Inline checkboxes and radio buttons */
+  .form-check-inline {
+    display: inline-flex;
+    align-items: center;
+    margin-right: var(--spacing-md);
+    margin-bottom: 0;
+  }
+  
+  /* Form rows and columns for layout */
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--spacing-sm) * -1);
+    margin-left: calc(var(--spacing-sm) * -1);
+  }
+  
+  .form-row > .form-group {
+    padding-right: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+    flex: 1 0 0%;
+  }
+  
+  /* Form actions (buttons, etc.) */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+  }
+  
+  /* Custom select */
+  .form-select {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-sm) center;
+    background-size: 16px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    appearance: none;
+  }
+  
+  .form-select:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
+  }
+  
+  /* Custom file upload */
+  .form-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .form-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(1.5em + var(--spacing-sm) * 2 + 2px);
+    margin: 0;
+    opacity: 0;
+  }
+  
+  .form-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(1.5em + var(--spacing-sm) * 2 + 2px);
+    padding: var(--spacing-sm);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-file-text {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .form-file-button {
+    padding: 0 var(--spacing-md);
+    color: var(--color-text);
+    background-color: var(--color-background-alt);
+    border-left: 1px solid var(--color-border);
+    margin-left: var(--spacing-sm);
+  }
+  
+  /* Search input */
+  .form-search {
+    position: relative;
+  }
+  
+  .form-search .form-control {
+    padding-right: 2.5rem;
+  }
+  
+  .form-search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-search-button:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Responsive forms */
+  @media (max-width: 768px) {
+    .form-row {
+      display: block;
+    }
+    
+    .form-row > .form-group {
+      padding: 0;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .form-actions .btn {
+      width: 100%;
+      margin-bottom: var(--spacing-sm);
+    }
+  }
