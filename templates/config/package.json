@@ -1,1 +1,33 @@
-
+{
+    "name": "{{project-name}}",
+    "version": "1.0.0",
+    "description": "{{project-description}}",
+    "main": "index.js",
+    "scripts": {
+      "start": "live-server",
+      "dev": "live-server",
+      "build": "echo \"No build process configured\"",
+      "lint": "eslint js/",
+      "lint:fix": "eslint js/ --fix",
+      "test": "echo \"No tests configured\""
+    },
+    "keywords": [
+      "web",
+      "{{keyword-1}}",
+      "{{keyword-2}}",
+      "{{keyword-3}}"
+    ],
+    "author": "{{author-name}}",
+    "license": "MIT",
+    "devDependencies": {
+      "eslint": "^8.43.0",
+      "eslint-config-standard": "^17.1.0",
+      "eslint-plugin-import": "^2.27.5",
+      "eslint-plugin-n": "^16.0.1",
+      "eslint-plugin-promise": "^6.1.1",
+      "live-server": "^1.2.2"
+    },
+    "dependencies": {
+      
+    }
+  }

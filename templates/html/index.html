@@ -3,136 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A description of your project">
-    <meta name="keywords" content="your, keywords, here">
-    <meta name="author" content="Your Name">
+    <meta name="description" content="{{project-description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="author" content="{{author-name}}">
     
-    <title>Project Title</title>
+    <title>{{project-title}}</title>
     
     <!-- Favicon -->
     <link rel="icon" href="assets/icons/favicon.ico">
     
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/main.css">
     
-    <!-- Font Awesome (optional) -->
+    <!-- Font Awesome (if needed) -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    
+    <!-- Google Fonts (if needed) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header class="site-header">
         <div class="container">
-            <nav>
+            <nav class="main-nav">
                 <div class="logo">
-                    <a href="index.html">Project Name</a>
+                    <a href="index.html">{{project-name}}</a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="mobile-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to Your Project</h1>
-                <p>A brief description of what your project does and why it's awesome.</p>
-                <button class="btn primary-btn">Get Started</button>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>{{hero-heading}}</h1>
+                    <p>{{hero-tagline}}</p>
+                    <div class="cta-buttons">
+                        <a href="#features" class="btn primary-btn">Learn More</a>
+                        <a href="#contact" class="btn secondary-btn">Get in Touch</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About This Project</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>This is where you can describe your project in more detail. Talk about what inspired you to create it, what problems it solves, and what makes it unique.</p>
-                </div>
-                <div class="about-image">
-                    <!-- Placeholder for an image -->
-                    <div class="img-placeholder">Image Placeholder</div>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>{{about-text}}</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/about-image.jpg" alt="About {{project-name}}">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section id="services" class="features">
-        <div class="container">
-            <h2>Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <!-- Icon Placeholder -->
-                        <div class="icon-placeholder">Icon</div>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <!-- Feature Item 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <!-- Icon goes here -->
+                        </div>
+                        <h3>{{feature-1-title}}</h3>
+                        <p>{{feature-1-description}}</p>
                     </div>
-                    <h3>Feature 1</h3>
-                    <p>Description of the first feature and why it's useful.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <div class="icon-placeholder">Icon</div>
+                    
+                    <!-- Feature Item 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <!-- Icon goes here -->
+                        </div>
+                        <h3>{{feature-2-title}}</h3>
+                        <p>{{feature-2-description}}</p>
                     </div>
-                    <h3>Feature 2</h3>
-                    <p>Description of the second feature and why it's useful.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <div class="icon-placeholder">Icon</div>
+                    
+                    <!-- Feature Item 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <!-- Icon goes here -->
+                        </div>
+                        <h3>{{feature-3-title}}</h3>
+                        <p>{{feature-3-description}}</p>
                     </div>
-                    <h3>Feature 3</h3>
-                    <p>Description of the third feature and why it's useful.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-content">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn">Send Message</button>
-                </form>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-content">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; <span id="year"></span> Your Name. All Rights Reserved.</p>
-            <div class="social-links">
-                <!-- Add your social media links here -->
-                <a href="#" class="social-link">GitHub</a>
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Twitter</a>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">{{project-name}}</a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> {{project-name}}. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

@@ -1,168 +1,338 @@
 /**
- * Project: Web Project Starter
- * Author: Your Name
- * Date: April 2025
- * Description: Main JavaScript file for the project
+ * Main JavaScript for {{project-name}}
+ * Author: {{author-name}}
+ * Date: {{creation-date}}
+ * 
+ * This file contains the main JavaScript functionality for the project.
  */
 
-// DOM Elements
-const mobileMenuBtn = document.querySelector('.mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-const contactForm = document.getElementById('contact-form');
-const yearSpan = document.getElementById('year');
-
-// Set current year in footer
-yearSpan.textContent = new Date().getFullYear();
-
-// Mobile menu toggle
-mobileMenuBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('nav-active');
+// Wait for the DOM to be fully loaded before executing code
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize all components
+  initMobileMenu();
+  initSmoothScrolling();
+  initFormValidation();
+  setCurrentYear();
   
-  // Animate hamburger menu
-  const bars = document.querySelectorAll('.bar');
-  bars.forEach(bar => bar.classList.toggle('active'));
-  
-  // First bar transforms to X (top part)
-  if (navLinks.classList.contains('nav-active')) {
-    bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-    bars[1].style.opacity = '0';
-    bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-  } else {
-    bars[0].style.transform = 'none';
-    bars[1].style.opacity = '1';
-    bars[2].style.transform = 'none';
-  }
+  // Add any other initialization functions here
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (navLinks.classList.contains('nav-active') && 
-      !e.target.closest('.nav-links') && 
-      !e.target.closest('.mobile-menu')) {
-    navLinks.classList.remove('nav-active');
-    
-    // Reset hamburger menu
-    const bars = document.querySelectorAll('.bar');
-    bars[0].style.transform = 'none';
-    bars[1].style.opacity = '1';
-    bars[2].style.transform = 'none';
-  }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Close mobile menu when clicking a link
-    if (navLinks.classList.contains('nav-active')) {
-      navLinks.classList.remove('nav-active');
+/**
+* Mobile Menu Functionality
+* Handles the mobile menu toggle button and menu display
+*/
+function initMobileMenu() {
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (!mobileMenuToggle || !navLinks) return;
+  
+  mobileMenuToggle.addEventListener('click', function() {
+      // Toggle the nav-active class to show/hide the menu
+      navLinks.classList.toggle('nav-active');
       
-      // Reset hamburger menu
-      const bars = document.querySelectorAll('.bar');
-      bars[0].style.transform = 'none';
-      bars[1].style.opacity = '1';
-      bars[2].style.transform = 'none';
-    }
-    
-    const targetId = this.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80, // Adjust for header height
-        behavior: 'smooth'
-      });
-    }
+      // Toggle the active class on the hamburger icon
+      const bars = this.querySelectorAll('.bar');
+      if (navLinks.classList.contains('nav-active')) {
+          // Transform to X icon
+          bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+          bars[1].style.opacity = '0';
+          bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+      } else {
+          // Reset to hamburger icon
+          bars[0].style.transform = 'none';
+          bars[1].style.opacity = '1';
+          bars[2].style.transform = 'none';
+      }
   });
-});
-
-// Form validation and submission
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    
-    // Basic validation
-    if (name === '' || email === '' || message === '') {
-      showFormAlert('Please fill in all fields', 'error');
-      return;
-    }
-    
-    if (!isValidEmail(email)) {
-      showFormAlert('Please enter a valid email address', 'error');
-      return;
-    }
-    
-    // Simulate form submission
-    // In a real project, you would send this data to a server
-    showFormAlert('Thank you! Your message has been sent.', 'success');
-    contactForm.reset();
-    
-    // Here you would typically add your AJAX call or form submission logic
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(event) {
+      if (navLinks.classList.contains('nav-active') && 
+          !event.target.closest('.nav-links') && 
+          !event.target.closest('.mobile-menu-toggle')) {
+          
+          navLinks.classList.remove('nav-active');
+          
+          // Reset hamburger icon
+          const bars = mobileMenuToggle.querySelectorAll('.bar');
+          bars[0].style.transform = 'none';
+          bars[1].style.opacity = '1';
+          bars[2].style.transform = 'none';
+      }
   });
 }
 
-// Helper function to validate email
+/**
+* Smooth Scrolling for Navigation Links
+* Handles smooth scrolling when clicking on navigation links
+*/
+function initSmoothScrolling() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  links.forEach(link => {
+      link.addEventListener('click', function(e) {
+          // Get the target element
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (!targetElement) return;
+          
+          e.preventDefault();
+          
+          // Close mobile menu if open
+          if (navLinks && navLinks.classList.contains('nav-active')) {
+              navLinks.classList.remove('nav-active');
+              
+              // Reset hamburger icon
+              if (mobileMenuToggle) {
+                  const bars = mobileMenuToggle.querySelectorAll('.bar');
+                  bars[0].style.transform = 'none';
+                  bars[1].style.opacity = '1';
+                  bars[2].style.transform = 'none';
+              }
+          }
+          
+          // Calculate header height for offset
+          const header = document.querySelector('.site-header');
+          const headerHeight = header ? header.offsetHeight : 0;
+          
+          // Scroll to target
+          window.scrollTo({
+              top: targetElement.offsetTop - headerHeight - 20, // Extra padding
+              behavior: 'smooth'
+          });
+          
+          // Update active link
+          updateActiveLink(targetId);
+      });
+  });
+  
+  // Update active link on scroll
+  window.addEventListener('scroll', debounce(function() {
+      const scrollPosition = window.scrollY;
+      const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+      
+      // Get all sections
+      const sections = document.querySelectorAll('section[id]');
+      
+      sections.forEach(section => {
+          const sectionTop = section.offsetTop - headerHeight - 100; // Buffer
+          const sectionHeight = section.offsetHeight;
+          const sectionId = '#' + section.getAttribute('id');
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              updateActiveLink(sectionId);
+          }
+      });
+  }, 100));
+}
+
+/**
+* Update Active Navigation Link
+* @param {string} targetId - The ID of the active section
+*/
+function updateActiveLink(targetId) {
+  // Remove active class from all links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+  });
+  
+  // Add active class to matching link
+  const activeLink = document.querySelector(`.nav-links a[href="${targetId}"]`);
+  if (activeLink) {
+      activeLink.classList.add('active');
+  }
+}
+
+/**
+* Form Validation
+* Validates the contact form before submission
+*/
+function initFormValidation() {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+  
+  contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form inputs
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+      
+      // Check if inputs exist
+      if (!nameInput || !emailInput || !messageInput) return;
+      
+      // Validate inputs
+      let isValid = true;
+      
+      // Name validation
+      if (nameInput.value.trim() === '') {
+          showError(nameInput, 'Please enter your name');
+          isValid = false;
+      } else {
+          clearError(nameInput);
+      }
+      
+      // Email validation
+      if (emailInput.value.trim() === '') {
+          showError(emailInput, 'Please enter your email');
+          isValid = false;
+      } else if (!isValidEmail(emailInput.value)) {
+          showError(emailInput, 'Please enter a valid email');
+          isValid = false;
+      } else {
+          clearError(emailInput);
+      }
+      
+      // Message validation
+      if (messageInput.value.trim() === '') {
+          showError(messageInput, 'Please enter your message');
+          isValid = false;
+      } else {
+          clearError(messageInput);
+      }
+      
+      // If all validations pass, we can submit the form
+      if (isValid) {
+          // Here you would normally send the form data to a server
+          // For template purposes, we'll just show a success message
+          showFormMessage('Thank you! Your message has been sent.', 'success');
+          contactForm.reset();
+      }
+  });
+}
+
+/**
+* Show error message for form input
+* @param {HTMLElement} input - The input element
+* @param {string} message - The error message
+*/
+function showError(input, message) {
+  // Get the form group
+  const formGroup = input.closest('.form-group');
+  
+  // Clear any existing error
+  clearError(input);
+  
+  // Add error class to the form group
+  formGroup.classList.add('error');
+  
+  // Create error message element
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-message';
+  errorElement.textContent = message;
+  errorElement.style.color = 'var(--color-error)';
+  errorElement.style.fontSize = 'var(--font-size-sm)';
+  errorElement.style.marginTop = 'var(--spacing-xs)';
+  
+  // Append error message
+  formGroup.appendChild(errorElement);
+  
+  // Highlight input
+  input.style.borderColor = 'var(--color-error)';
+}
+
+/**
+* Clear error message for form input
+* @param {HTMLElement} input - The input element
+*/
+function clearError(input) {
+  // Get the form group
+  const formGroup = input.closest('.form-group');
+  
+  // Remove error class
+  formGroup.classList.remove('error');
+  
+  // Remove any existing error message
+  const errorElement = formGroup.querySelector('.error-message');
+  if (errorElement) {
+      formGroup.removeChild(errorElement);
+  }
+  
+  // Reset input style
+  input.style.borderColor = '';
+}
+
+/**
+* Show form message (success, error, etc.)
+* @param {string} message - The message to display
+* @param {string} type - The message type (success, error)
+*/
+function showFormMessage(message, type) {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+  
+  // Remove any existing form message
+  const existingMessage = document.querySelector('.form-message');
+  if (existingMessage) {
+      existingMessage.remove();
+  }
+  
+  // Create message element
+  const messageElement = document.createElement('div');
+  messageElement.className = `form-message form-message-${type}`;
+  messageElement.textContent = message;
+  
+  // Style the message
+  if (type === 'success') {
+      messageElement.style.backgroundColor = 'var(--color-success)';
+  } else if (type === 'error') {
+      messageElement.style.backgroundColor = 'var(--color-error)';
+  }
+  
+  messageElement.style.color = 'white';
+  messageElement.style.padding = 'var(--spacing-sm) var(--spacing-md)';
+  messageElement.style.borderRadius = 'var(--border-radius-sm)';
+  messageElement.style.marginBottom = 'var(--spacing-md)';
+  
+  // Insert message before the form
+  contactForm.parentNode.insertBefore(messageElement, contactForm);
+  
+  // Remove message after 5 seconds
+  setTimeout(() => {
+      messageElement.remove();
+  }, 5000);
+}
+
+/**
+* Check if an email is valid
+* @param {string} email - The email to validate
+* @returns {boolean} - True if the email is valid
+*/
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// Helper function to show form alerts
-function showFormAlert(message, type) {
-  // Remove any existing alerts
-  const existingAlert = document.querySelector('.form-alert');
-  if (existingAlert) {
-    existingAlert.remove();
+/**
+* Set current year in footer copyright
+*/
+function setCurrentYear() {
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
   }
-  
-  // Create alert element
-  const alertDiv = document.createElement('div');
-  alertDiv.className = `form-alert ${type}`;
-  alertDiv.textContent = message;
-  
-  // Add styles
-  alertDiv.style.padding = '10px';
-  alertDiv.style.marginBottom = '15px';
-  alertDiv.style.borderRadius = '4px';
-  
-  if (type === 'error') {
-    alertDiv.style.backgroundColor = '#f8d7da';
-    alertDiv.style.color = '#721c24';
-    alertDiv.style.border = '1px solid #f5c6cb';
-  } else {
-    alertDiv.style.backgroundColor = '#d4edda';
-    alertDiv.style.color = '#155724';
-    alertDiv.style.border = '1px solid #c3e6cb';
-  }
-  
-  // Insert alert before the form
-  contactForm.parentNode.insertBefore(alertDiv, contactForm);
-  
-  // Remove alert after 5 seconds
-  setTimeout(() => {
-    alertDiv.remove();
-  }, 5000);
 }
 
-// Add scroll event to handle sticky header effects
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  
-  if (window.scrollY > 50) {
-    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-  } else {
-    header.style.boxShadow = 'none';
-  }
-});
-
-// Display loading animation when page is loading (if needed)
-window.addEventListener('load', () => {
-  // Code to hide a loading spinner would go here
-  console.log('Page loaded successfully!');
-});
+/**
+* Debounce function for performance optimization
+* @param {function} func - The function to debounce
+* @param {number} wait - The wait time in milliseconds
+* @returns {function} - The debounced function
+*/
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+      const context = this;
+      const args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+          func.apply(context, args);
+      }, wait);
+  };
+}
