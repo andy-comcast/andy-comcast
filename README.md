@@ -18,9 +18,7 @@ This repository uses a **branch-based organization system** that provides severa
 
 | Project | Description | Technologies | Status |
 |---------|-------------|--------------|--------|
-| [Project Name](https://github.com/your-username/web-dev-projects/tree/project-name) | Brief description of the project | HTML, CSS, JavaScript | In Progress |
-| [Project Name](https://github.com/your-username/web-dev-projects/tree/project-name) | Brief description of the project | React, Node.js | Planned |
-| [Project Name](https://github.com/your-username/web-dev-projects/tree/project-name) | Brief description of the project | Vue, Firebase | Planned |
+| [Codecademy - Challenge Project: Company Home Page with Flexbox]([https://github.com/your-username/web-dev-projects/tree/project-name](https://github.com/andy-comcast/andy-comcast.git)) | Simple Flexbox Use | HTML, CSS, | In Progress |
 
 *Note: This table will be updated as projects are added to the repository. Click on project names to view their source code and documentation.*
 
@@ -110,7 +108,7 @@ Each project branch will have its own structure based on the project requirement
 
 ## Development Standards
 
-Across all projects in this repository, these standards are maintained:
+Across all projects in this repository, based on the project requirements, these standards are maintained:
 
 - **Responsive Design**: Mobile-first approach to ensure compatibility across devices
 - **Semantic HTML**: Clear, accessible markup structure
