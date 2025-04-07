@@ -57,20 +57,6 @@ project-root/
 - {{prerequisite-2}}
 - {{prerequisite-3}}
 
-### Local Development
-
-1. Clone this branch of the repository:
-   ```bash
-   git clone -b {{branch-name}} https://github.com/{{username}}/web-dev-projects.git
-   cd web-dev-projects
-   ```
-
-2. {{setup-step-2}}
-
-3. {{setup-step-3}}
-
-4. {{setup-step-4}}
-
 ## Usage
 
 {{usage-instructions}}
