@@ -1,16 +1,12 @@
-# {{project-name}}
+# Codecademy - Challenge Project: Company Home Page with Flexbox
 
-![Project Banner](assets/images/project-banner.jpg)
+![Project Banner](./assets/images/github-header-image.png)
 
 ## Overview
 
 {{project-description}}
 
 This project was created to {{project-purpose}}. It showcases the use of {{key-technologies}} to build {{project-type}}.
-
-## Live Demo
-
-[View Live Demo]({{demo-url}})
 
 ## Features
 
