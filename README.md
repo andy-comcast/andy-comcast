@@ -1,6 +1,6 @@
 # Web Development Projects Repository
 
-![Web Development Banner](https://via.placeholder.com/1200x300/4169e1/ffffff?text=Web+Development+Projects)
+![Web Development Banner](https://as1.ftcdn.net/jpg/03/77/08/22/1000_F_377082215_XdCMMLYICc9uDtX4bFLP7k0bfRf5rAPF.jpg)
 
 A comprehensive collection of web development projects, each maintained in its own dedicated branch. This repository serves as a centralized hub for organizing various web applications, sites, and experiments while keeping each project's codebase separate and organized.
 
@@ -30,10 +30,10 @@ To explore this repository and its projects:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/web-dev-projects.git
+git clone https://github.com/andy-comcast/andy-comcast
 
 # Navigate to the repository
-cd web-dev-projects
+cd andy-comcast
 
 # See all available branches (projects)
 git branch -a
@@ -75,9 +75,11 @@ The main branch contains:
 
 ```
 repository-root/
-├── README.md                 # This documentation file
+├── README.md                 # Main repository documentation
 ├── LICENSE                   # License file
 ├── .gitignore                # Global gitignore file
+├── CONTRIBUTING.md           # Contribution guidelines (optional)
+├── CHANGELOG.md              # Repository-wide changelog (optional)
 ├── templates/                # Templates for new projects
 │   ├── html/
 │   │   └── index.html        # Basic HTML template
@@ -86,11 +88,22 @@ repository-root/
 │   │   └── main.css          # Main stylesheet template
 │   ├── js/
 │   │   └── main.js           # JavaScript template
+│   ├── components/           # Reusable component templates
+│   │   ├── header/
+│   │   ├── footer/
+│   │   └── forms/
 │   └── README.md             # Project README template
 ├── scripts/                  # Utility scripts
-│   └── setup-project.sh      # New project setup script
-└── docs/                     # Documentation
-    └── style-guide.md        # Coding standards
+│   ├── setup-project.sh      # New project setup script
+│   └── update-templates.sh   # Script to update templates
+├── docs/                     # Documentation
+│   ├── style-guide.md        # Coding standards
+│   ├── workflow.md           # Development workflow
+│   └── design-system.md      # Design system documentation
+└── .github/                  # GitHub-specific files
+    ├── ISSUE_TEMPLATE/
+    ├── PULL_REQUEST_TEMPLATE.md
+    └── workflows/            # GitHub Actions workflows
 ```
 
 Each project branch will have its own structure based on the project requirements, but generally following a consistent pattern for organization.
@@ -126,9 +139,9 @@ This repository is licensed under the MIT License - see the [LICENSE](LICENSE) f
 
 Feel free to reach out with questions or feedback about any of the projects contained in this repository.
 
-- GitHub: [your-username](https://github.com/your-username)
-- Portfolio: [your-portfolio-site.com](https://your-portfolio-site.com)
-- Email: your.email@example.com
+- GitHub: [andy-comcast](https://github.com/andy-comcast)
+- Portfolio: [my-portfolio](https://andy-comcast.github.io/andy-comcast/)
+- Email: andrewreeves73@icloud.com
 
 ---
 
