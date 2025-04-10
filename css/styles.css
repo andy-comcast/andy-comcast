@@ -1,1 +1,591 @@
+/* 
+   Aperture Club - Responsive Website
+   This CSS demonstrates responsive design concepts:
+   - Using em and rem units for responsive sizing
+   - Media queries for different screen sizes
+   - Responsive images that scale based on screen width
+*/
 
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Setting base font size for rem calculations */
+  font-size: 16px;
+
+  /* Color variables */
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --text-color: #333;
+  --text-light: #f8f9fa;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.section-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary-color);
+  padding: 1rem 5%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container h1 {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 1.5rem;
+}
+
+nav ul li a {
+  color: var(--text-light);
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mobile-menu span {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-light);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/images/hero-photo.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+  margin-top: 4rem;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h2 {
+  color: var(--text-light);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--text-light);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* About Section */
+.about-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.about-image {
+  flex: 1;
+}
+
+/* Events Section */
+.events-section {
+  padding: 5rem 0;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.event-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.event-details {
+  padding: 1.5rem;
+}
+
+.event-date {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+/* Membership Section */
+.membership-section {
+  padding: 5rem 0;
+}
+
+.membership-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.membership-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.membership-card:hover {
+  transform: translateY(-10px);
+}
+
+.membership-card.featured:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.membership-card ul {
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.membership-card ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.membership-card ul li:hover {
+  content: "✓";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 3rem 5% 1rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo, .footer-links, .footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo h2 {
+  color: var(--text-light);
+  font-size: 1.5rem;
+}
+
+.footer-links h3, .footer-social h3 {
+  color: var(--text-light);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.footer-links ul li a:hover {
+  opacity: 1;
+  color: var(--secondary-color);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 
+   RESPONSIVE DESIGN FEATURES 
+   These media queries implement the responsive design concepts:
+   - Making images toggle to certain percentages in width
+   - Changing page layout based on screen size
+   - Using em and rem for responsive spacing
+*/
+
+/* Medium Screens (Tablets) */
+@media screen and (max-width: 992px) {
+  :root {
+      /* Slightly smaller base font size for tablets */
+      font-size: 15px;
+  }
+  
+  .hero h2 {
+      font-size: 2.5rem;
+  }
+  
+  .about-content {
+      flex-direction: column;
+  }
+  
+  .about-text, .about-image {
+      flex: none;
+      width: 100%;
+  }
+  
+  .about-image img {
+      /* Toggle image width for medium screens */
+      width: 80%;
+      margin: 0 auto;
+  }
+  
+  .contact-content {
+      flex-direction: column;
+  }
+  
+  .membership-card {
+      min-width: 280px;
+  }
+}
+
+/* Small Screens (Mobile) */
+@media screen and (max-width: 768px) {
+  :root {
+      /* Even smaller base font size for mobile */
+      font-size: 14px;
+  }
+  
+  header {
+      padding: 1rem;
+  }
+  
+  nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      padding: 1rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+  }
+  
+  nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+  }
+  
+  nav ul {
+      flex-direction: column;
+  }
+  
+  nav ul li {
+      margin: 0.5rem 0;
+      margin-left: 0;
+  }
+  
+  .mobile-menu {
+      display: flex;
+  }
+  
+  .hero h2 {
+      font-size: 2rem;
+  }
+  
+  .hero p {
+      font-size: 1rem;
+  }
+  
+  .about-image img, .gallery-item img, .event-card img {
+      /* Toggle image width for small screens */
+      width: 100%;
+  }
+  
+  .events-grid, .gallery-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .membership-options {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .membership-card {
+      width: 100%;
+      max-width: 100%;
+  }
+  
+  .membership-card.featured {
+      transform: none;
+      order: -1;
+  }
+  
+  .membership-card.featured:hover {
+      transform: translateY(-10px);
+  }
+  
+  .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+  }
+}
+
+/* Extra Small Screens */
+@media screen and (max-width: 480px) {
+  :root {
+      /* Smallest base font size for very small screens */
+      font-size: 13px;
+  }
+  
+  .section-container {
+      padding: 1.5rem 1rem;
+  }
+  
+  .hero {
+      height: 80vh;
+  }
+  
+  .hero h2 {
+      font-size: 1.75rem;
+  }
+  
+  /* Images at smallest screens are full width */
+  .about-image img, .gallery-item img, .event-card img {
+      width: 100%;
+  }
+}
